@@ -20,22 +20,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         // If 'country' parameter is not present, fetch all countries
         $stmt = $conn->query("SELECT * FROM countries");
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo '<ul>';
+
+        echo '<table border="1">';
+        echo '<tr>
+        <th>Country Name</th>
+        <th>Continent</th>
+        <th>Independence Year</th>
+        <th>Head of State</th>
+        </tr>';
+        foreach ($results as $row) {
+            echo '<tr>';
+            echo '<td>' . $row['name'] . '</td>';
+            echo '<td>' . $row['continent'] . '</td>';
+            echo '<td>' . $row['independence_year'] . '</td>';
+            echo '<td>' . $row['head_of_state'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+
+        /*echo '<ul>';
             foreach ($results as $row) {
                 echo '<li>' . $row['name'] . ' is ruled by ' . $row['head_of_state'] . '</li>';
             }
-            echo '</ul>';
+            echo '</ul>';*/
     }
 
     // Output the data
     if (empty($results)) {
         echo "No data was found for the country: " . (isset($country) ? $country : 'All countries');
     } else{
-        echo '<ul>';
+        echo '<table border="1">';
+        echo '<tr>
+        <th>Country Name</th>
+        <th>Continent</th>
+        <th>Independence Year</th>
+        <th>Head of State</th>
+        </tr>';
+        foreach ($results as $row) {
+            echo '<tr>';
+            echo '<td>' . $row['name'] . '</td>';
+            echo '<td>' . $row['continent'] . '</td>';
+            echo '<td>' . $row['independence_year'] . '</td>';
+            echo '<td>' . $row['head_of_state'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+
+        /*echo '<ul>';
         foreach ($results as $row) {
             echo '<li>' . $row['name'] . ' is ruled by ' . $row['head_of_state'] . '</li>';
         }
-        echo '</ul>';
+        echo '</ul>';*/
     }
 }
 ?>

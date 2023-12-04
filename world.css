@@ -4,3 +4,53 @@ body{
     padding:10px;
 }
 
+header{
+    display:flex;
+    background-color: rgb(120, 188, 228);
+    color: white;
+    margin-bottom: 5px;
+    padding: 40px;
+    justify-content:center;
+}
+header img{
+    box-shadow: 5%;
+    margin-left:10px;
+}
+main{
+    display:grid;
+    justify-content: center;
+    justify-items: center;
+    background-color: rgb(155, 197, 166);
+    padding-top:15px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom:370px;
+    grid-template-rows: 1fr;
+
+}
+form{
+    grid-row: 1;
+    margin-bottom:20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.result {
+    grid-row: 2;
+    align-content: center;
+    align-items:center;
+}
+input{
+    border:none;
+    outline:none;
+    padding:10px;
+    border-radius: 10px;
+    width: 350px;
+    
+}
+button{
+    border:none;
+    outline:none;
+    padding:10px;
+    background-color:rgb(120, 188, 228);
+}
