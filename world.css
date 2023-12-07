@@ -1,7 +1,8 @@
 /* Add your own styles */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 body{
-    margin:auto;
-    padding:10px;
+    padding:0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 header{
@@ -11,6 +12,17 @@ header{
     margin-bottom: 5px;
     padding: 40px;
     justify-content:center;
+    
+}
+header h1{
+    font-size: 50px;
+    font-family: 'Luckiest Guy', cursive;
+    text-shadow: 3px 3px 5px rgb(1, 120, 189);
+    border:5px solid rgb(1, 120, 189);
+    border-radius: 20%;
+    color:white;
+    padding: 20px;
+
 }
 header img{
     box-shadow: 5%;
@@ -25,22 +37,22 @@ main{
     padding-left: 100px;
     padding-right: 100px;
     padding-bottom:370px;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr ;
 
 }
 form{
-    grid-row: 1;
     margin-bottom:20px;
     text-align: center;
     align-items: center;
     justify-content: center;
 }
 .result {
-    grid-row: 2;
+    grid-row: 3;
     align-content: center;
     align-items:center;
 }
 input{
+    grid-row: 1;
     border:none;
     outline:none;
     padding:10px;
@@ -49,8 +61,21 @@ input{
     
 }
 button{
+    grid-row: 2;
+    margin: 2px;
     border:none;
     outline:none;
     padding:10px;
-    background-color:rgb(120, 188, 228);
+    background-color:rgb(1, 120, 189);
+    font-size:15px;
+    color:white;
+}
+.controls p{
+    display: flex;
+    margin-left: 20px;
+}
+.result {
+    background-color: white;
+    border-spacing:5px;
+    
 }

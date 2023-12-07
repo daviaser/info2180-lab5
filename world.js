@@ -1,26 +1,33 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Page successfully loaded!");
+    var lookupButton = document.getElementById("lookup");
+    var lookupCities = document.getElementById("lookupCities");
+    var countryInput = document.getElementById("country");
+    var resultDiv = document.getElementById("result");
 
-    // Listen for clicks on the "Lookup" button
-    var lookupButton = document.getElementById('lookup');
-
+    //Event Listener for the first lookup button (Countries)
     lookupButton.addEventListener("click", function(event) {
-        var country = document.getElementById("country").value.trim();
         event.preventDefault();
-        // Fetch the data from world.php using AJAX
-        fetch(`http://localhost/info2180-lab5/world.php?country=${encodeURIComponent(country)}` )
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`An error has occured: ${response.status}`);
-                }
-                return response.text();
-            })
+        var country = countryInput.value.trim();
+
+        fetch("world.php?country=" + encodeURIComponent(country))
+            .then(response => response.text())
             .then(data => {
-                // Print the data into the div with id "result"
-                document.getElementById("result").innerHTML = data;
+                resultDiv.innerHTML = data;
             })
-            .catch(error => {
-                console.error("Fetch error:", error);
-            });
+            .catch(error => console.error('Error:', error));
+    });
+
+    //Event Listener for the second lookup button (Cities)
+    lookupCities.addEventListener("click", function(event) {
+        event.preventDefault();
+        var country = countryInput.value.trim();
+
+        fetch("world.php?country=" + encodeURIComponent(country) + "&lookup=cities")
+            .then(response => response.text())
+            .then(data => {
+                resultDiv.innerHTML = data;
+            })
+            .catch(error => console.error('Error:', error));
     });
 });
